@@ -9,15 +9,29 @@ router.post('/allAlerts', async (req, res) => {
     switch (req.body.status) {
         case 'issued':
             alertStatus = 'issues';
+            break;
+        case'updated':
+            alertStatus = 'updates';
+            break;
+        case'cancelled':
+            alertStatus = 'cancels';
+            break;
+        case'expired':
+            alertStatus = 'expires';
+            break;
+        case'upgraded':
+            alertStatus = 'upgrades';
+            break;
         default:
             req.body.status;
+            break;
     };
 
     const sender = req.body.sender;
     const alertSender = sender.toUpperCase();
     
     try {
-        discord.postWebhook(req.body.headline, req.body.desc, req.body.web, req.body.image, alertSender, alertStatus, req.body.event);
+        discord.postWebhook(req.body.headline, '```' + req.body.desc + '```', req.body.web, req.body.image, alertSender, alertStatus, req.body.event, req.body.locs, req.body.expire);
         res.status(200).send({alert: "sent"});
     } catch (error) {
         res.status(400).send(JSON.stringify(error));

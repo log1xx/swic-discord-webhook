@@ -235,6 +235,9 @@ function alertDefColors(def) {
     case 'sew':
       alertColorReturn = '#D8BFD8';
       break;
+    case 'duy':
+      alertColorReturn = '#BDB76B';
+      break;
     case 'bdy':
       alertColorReturn = '#BDB76B';
       break;
@@ -250,7 +253,7 @@ function alertDefColors(def) {
     case 'asy':
       alertColorReturn = '#696969';
       break;
-    case 'fow':
+    case 'foy':
       alertColorReturn = '#008080';
       break;
     case 'spy':
@@ -342,6 +345,9 @@ function alertDefColors(def) {
       break;
     case 'asa':
       alertColorReturn = '#808080';
+      break;
+    case 'hwo':
+      alertColorReturn = '#EEE8AA';
       break;
     case 'hyo':
       alertColorReturn = '#90EE90';

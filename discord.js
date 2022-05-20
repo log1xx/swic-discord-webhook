@@ -5,9 +5,17 @@ require('dotenv/config');
 
 const wc = new discord.WebhookClient({ id: process.env.WEBHOOK_GUILD, token: process.env.WEBHOOK_TOKEN });
 
-function postWebhook(title, description, url, image, wfo, alertStatus, event) {
+function postWebhook(title, description, url, image, wfo, alertStatus, event, locs, expire) {
     try {
-        const content = wfo + " " + alertStatus + " " + title;
+        var expireFormat = new Date(expire);
+        var content;
+
+        if (alertStatus == 'issues' || alertStatus == 'updates') {
+            content = wfo + " " + alertStatus + " " + title + " for " + locs + " til " + expireFormat.toLocaleString() + " Eastern";
+        } else {
+            content = wfo + " " + alertStatus + " " + title + " for " + locs;
+        }
+        
         const alertEmbed = new MessageEmbed()
             .setColor(alertDefs.alertDefColors(event))
             .setTitle(title)
