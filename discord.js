@@ -10,8 +10,8 @@ function postWebhook(title, description, url, image, wfo, alertStatus, event, lo
         var expireFormat = new Date(expire);
         var content;
 
-        if (alertStatus == 'issues' || alertStatus == 'updates') {
-            content = wfo + " " + alertStatus + " " + title + " for " + locs + " til " + expireFormat.toLocaleString() + " UTC";
+        if (alertStatus == 'issues' || alertStatus == 'updates' || alertStatus == 'corrects' || alertStatus == 'continues') {
+            content = wfo + " " + alertStatus + " " + title + " for " + locs + " til " + expireFormat.toString().replace(/GMT.+\(/, '').replace(/\)/, '');
         } else {
             content = wfo + " " + alertStatus + " " + title + " for " + locs;
         }

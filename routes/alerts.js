@@ -10,17 +10,23 @@ router.post('/allAlerts', async (req, res) => {
         case 'issued':
             alertStatus = 'issues';
             break;
-        case'updated':
+        case 'updated':
             alertStatus = 'updates';
             break;
-        case'cancelled':
+        case 'upgraded':
+            alertStatus = 'upgrades';
+            break;
+        case 'corrected':
+            alertStatus = 'corrects';
+            break;
+        case 'continued':
+            alertStatus = 'continues';
+            break;
+        case 'cancelled':
             alertStatus = 'cancels';
             break;
-        case'expired':
+        case 'expired':
             alertStatus = 'expires';
-            break;
-        case'upgraded':
-            alertStatus = 'upgrades';
             break;
         default:
             req.body.status;
