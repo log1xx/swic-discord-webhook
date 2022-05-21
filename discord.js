@@ -11,7 +11,7 @@ function postWebhook(title, description, url, image, wfo, alertStatus, event, lo
         var content;
 
         if (alertStatus == 'issues' || alertStatus == 'updates') {
-            content = wfo + " " + alertStatus + " " + title + " for " + locs + " til " + expireFormat.toLocaleString() + " Eastern";
+            content = wfo + " " + alertStatus + " " + title + " for " + locs + " til " + expireFormat.toLocaleString() + " UTC";
         } else {
             content = wfo + " " + alertStatus + " " + title + " for " + locs;
         }
