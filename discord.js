@@ -19,14 +19,16 @@ function postWebhook(title, description, url, image, wfo, alertStatus, event, lo
             }
         }
 
-        if (alertStatus == 'issues' || alertStatus == 'updates' || alertStatus == 'corrects' || alertStatus == 'continues') {
+        if ((alertStatus == 'issues' || alertStatus == 'updates' || alertStatus == 'corrects' || alertStatus == 'continues') && (locsString != '[')) {
             content = wfo + " " + alertStatus + " " + title + " for " + locsString + " til " + expireFormat.toString().replace(/GMT.+\(/, '').replace(/\)/, '');
-        } else {
+        } else if (locsString != '[') {
             content = wfo + " " + alertStatus + " " + title + " for " + locsString;
+        } else {
+            content = wfo + " " + alertStatus + " " + title;
         }
         
         const alertEmbed = new MessageEmbed()
-            .setColor(alertDefs.alertDefColors(event))
+            .setColor(alertDefs.alertDefColors(description))
             .setTitle(title)
             .setURL(url)
             //.setImage(image)

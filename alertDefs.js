@@ -1,44 +1,44 @@
 var alertColorReturn;
 
 function alertDefColors(def) {
-  switch (def.toLowerCase()) {
-    case 'tsw':
+  switch (true) {
+    case def.includes('TS.W'):
       alertColorReturn = '#FD6347';
       break;
-    case 'tor':
+    case def.includes('TO.W'):
       alertColorReturn = '#FF0000';
       break;
-    case 'eww':
+    case def.includes('EW.W'):
       alertColorReturn = '#FF8C00';
       break;
-    case 'svr':
+    case def.includes('SV.W'):
       alertColorReturn = '#FFA500';
       break;
-    case 'ffw':
+    case def.includes('FF.W'):
       alertColorReturn = '#8B0000';
       break;
-    case 'ffs':
+    case def.includes('FF.S'):
       alertColorReturn = '#8B0000';
       break;
-    case 'svs':
+    case def.includes('SV.S'):
       alertColorReturn = '#00FFFF';
       break;
-    case 'spw':
+    case def.includes('MA.W'):
       alertColorReturn = '#FA8072';
       break;
-    case 'evi':
+    case def.includes('EV.W'):
       alertColorReturn = '#7FFF00';
       break;
-    case 'cdw':
+    case def.includes('CD.W'):
       alertColorReturn = '#FFB6C1';
       break;
-    case 'nuw':
+    case def.includes('NU.W'):
       alertColorReturn = '#4B0082';
       break;
-    case 'rhw':
+    case def.includes('RH.W'):
       alertColorReturn = '#4B0082';
       break;
-    case 'hmw':
+    case def.includes('HM.W'):
       alertColorReturn = '#4B0082';
       break;
     case 'frw':
@@ -381,7 +381,7 @@ function alertDefColors(def) {
       break;
   }
 
-  console.log(def.toLowerCase());
+  console.log(def.includes('TS.W'));
   console.log(alertColorReturn);
   return(alertColorReturn);
 }
